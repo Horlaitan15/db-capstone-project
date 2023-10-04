@@ -58,7 +58,7 @@ DELIMITER ;
 -- CALL CheckBooking('2022-11-12', 3);
 
 DELIMITER //
-CREATE PROCEDURE AddValidBooking(order_date DATE, table_number INT)
+CREATE PROCEDURE ManageBooking(order_date DATE, table_number INT)
 	BEGIN
 		START TRANSACTION;
 		INSERT INTO Bookings (BookingID, BookingSlot, TableNumber, CustomerID) VALUES (1, ordate_date, table_number, 2);
@@ -78,7 +78,7 @@ CREATE PROCEDURE AddBooking(booking_id INT, customer_id INT, booking_date DATE, 
 		SELECT 'New booking added' AS Confirmation;
 	END //
 
-CREATE PROCEDURE UpdateBooking (booking_id INT, booking_date DATE)
+CREATE PROCEDURE UpdateBooking(booking_id INT, booking_date DATE)
 	BEGIN
 		UPDATE Bookings SET BookingSlot = booking_date WHERE BookingID = booking_id;
 		SELECT CONCAT('Booking ', booking_id, ' updated') AS Confirmation;
