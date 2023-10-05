@@ -61,7 +61,7 @@ DELIMITER //
 CREATE PROCEDURE ManageBooking(order_date DATE, table_number INT)
 	BEGIN
 		START TRANSACTION;
-		INSERT INTO Bookings (BookingID, BookingSlot, TableNumber, CustomerID) VALUES (1, ordate_date, table_number, 2);
+		INSERT INTO Bookings (BookingID, BookingSlot, TableNumber, CustomerID) VALUES (5, order_date, table_number, 2);
 		IF (SELECT COUNT(BookingID) FROM Bookings WHERE TableNumber = table_number) > 1 THEN
 		SELECT CONCAT('Table ', table_number, ' is already booked - booking cancelled') AS 'Booking status';
 		ROLLBACK;
